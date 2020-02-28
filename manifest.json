@@ -18,5 +18,11 @@
             ],
             "run_at": "document_idle"
         }
+    ],
+    "permissions": [
+        "storage",
+        "tabs",
+        "activeTab",
+        "<all_urls>"
     ]
   }

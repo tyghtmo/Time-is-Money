@@ -1,11 +1,19 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Time is Money</title>
-    <script src="popup.js"></script>
-  </head>
-  <body>
-    <h1>Time is Money</h1>
-    <button id="checkPage">Convert Money to Time</button>
-  </body>
+
+<head>
+  <title>Time is Money</title>
+  <script src="popup.js"></script>
+</head>
+
+<body style="width: 170px;">
+  <h1>Time is Money</h1>
+  <form id="form">
+    <label for="wage">Hourly wage</label><br>
+    <span>$<input type="text" id="wage" name="wage" style="width:40px;"></span>
+    <input type="button" id="submit" name="submit" value="Update">
+  </form>
+
+</body>
+
 </html>
