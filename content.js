@@ -2,8 +2,17 @@ var elements = document.getElementsByTagName('*');
 
 chrome.storage.sync.get(['wage'], function (result) {
     console.log("Hourly pay: $" + result.wage);
+    if(result.wage == null){
+        setWage(10);
+    }
     moneyToTime(result.wage);
 });
+
+function setWage(wage) {
+    chrome.storage.sync.set({ "wage": wage }, function () {
+        console.log("Wage is: $" + wage);
+    });
+}
 
 function moneyToTime(hourWage) {
     for (var i = 0; i < elements.length; i++) {
@@ -21,8 +30,7 @@ function moneyToTime(hourWage) {
                 var match = text.match(pattern);
                 if (match != null) {
                     numString = match[0];
-                    numString = text.replace('$', '');
-                    numString = numString.trim();
+                    numString = text.replace(/[^\d.-]/g, '');
                     numString = numString.split(' ')[0];
                     //alert(numString);
                     numString = numString / hourWage;

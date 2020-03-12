@@ -1,0 +1,23 @@
+body{
+    width: 175px;
+    font-family: "Lucinda Console", "Monaco", monospace;
+}
+
+h1{
+    text-align: center;
+    margin-block-end: 0.27em;
+}
+
+form{
+    text-align: center;
+}
+
+label {
+    font-size: medium;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
