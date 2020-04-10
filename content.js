@@ -2,7 +2,7 @@ var elements = document.getElementsByTagName('*');
 
 chrome.storage.sync.get(['wage'], function (result) {
     console.log("Hourly pay: $" + result.wage);
-    if(result.wage == null){
+    if (result.wage == null) {
         setWage(10);
     }
     moneyToTime(result.wage);
@@ -24,26 +24,27 @@ function moneyToTime(hourWage) {
             var text = node.nodeValue;
 
             if (text != null) {
-                var pattern = /\$\d+\.?\d{0,2}/;
+                var pattern = /\$\d+\.?\d{0,2}/g;
                 var numString = "";
 
                 var match = text.match(pattern);
                 if (match != null) {
-                    numString = match[0];
-                    numString = text.replace(/[^\d.-]/g, '');
-                    numString = numString.split(' ')[0];
-                    //alert(numString);
-                    numString = numString / hourWage;
-                    numString = numString.toFixed(2) + ' Hours';
+                    for (var i = 0; i < match.length ; i++ ) {
+                        var newText = text
+                        numString = match[i];
+                        numString = match[i].replace(/[^\d.-]/g, '');
+                        numString = numString.split(' ')[0];
 
-                    //alert(numString);
-                    //var replacedText = text + " " + numString;
-                    var replacedText = numString;
-                    //var replacedText = text.replace('$', 'hours');
+                        //alert(numString);
+                        numString = numString / hourWage;
+                        numString = numString.toFixed(2) + ' Hours';
+                        //alert(numString);
 
-                    if (replacedText !== text) {
-                        element.replaceChild(document.createTextNode(replacedText), node);
+                        newText = newText.replace(match[i], numString);
                     }
+                     if (newText !== text) {
+                         element.replaceChild(document.createTextNode(newText), node);
+                     }
                 }
             }
         }
