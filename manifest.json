@@ -4,7 +4,7 @@
     "description": "Time is money and money buys things. Cut out the middle man and discover just how much time things are worth",
     "version": "1.0",
     "browser_action": {
-     "default_icon": "money-clock-icon.png",
+     "default_icon": "time-is-money.png",
      "default_popup": "popup.html"
     },
     "content_scripts": [
