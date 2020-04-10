@@ -1,23 +1,42 @@
-body{
+body {
     width: 175px;
     font-family: "Lucinda Console", "Monaco", monospace;
+    background: rgb(55, 119, 113);
+    background: linear-gradient(45deg, rgba(55, 119, 113, 1) 0%, rgba(146, 201, 177, 1) 30%);
 }
 
-h1{
+h1 {
     text-align: center;
     margin-block-end: 0.27em;
+    color: white;
 }
 
-form{
+form {
     text-align: center;
 }
 
 label {
     font-size: medium;
+    color: white;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+span {
+    color: white;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input#submit, input#wage {
+    border-radius: 3px;
+    border-style: solid;
+    border-color: white;
+    background-color: white;
+}
+
+input#submit:hover {
+    background-color: #dddddd;
+    border-color: #dddddd;
 }
