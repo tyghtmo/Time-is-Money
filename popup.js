@@ -2,6 +2,18 @@ chrome.storage.sync.get(['wage'], function (result) {
     document.getElementById('wage').value = result.wage;
 });
 
+chrome.storage.sync.get(['onOff'], function (result) {
+    document.getElementById('onOff').checked = result.onOff;
+});
+
+function onOff() {
+    var onOff = document.getElementById('onOff').checked;
+    chrome.storage.sync.set({ "onOff": onOff }, function () {
+        console.log("Switch checked: " + onOff);
+    });
+    loadContent();
+}
+
 function changeWage() {
     var newWage = document.getElementById("wage").value;
     chrome.storage.sync.set({ "wage": newWage }, function () {
@@ -17,9 +29,8 @@ function loadContent(){
     });
 }
 
-// const form = document.getElementById("form");
-// form.addEventListener('submit', changeWage());
 
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('submit').addEventListener('click', changeWage);
+    document.getElementById('onOff').addEventListener('click', onOff)
 });
