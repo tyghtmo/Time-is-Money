@@ -10,6 +10,21 @@ body {
     justify-content: space-between;
 }
 
+#form {
+  width: 150px;
+}
+
+#refresh {
+  width: 25px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+#content{
+  display: flex;
+  justify-content: space-between;
+}
+
 h1 {
     text-align: center;
     margin-block-end: 0.27em;

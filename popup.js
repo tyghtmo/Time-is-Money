@@ -22,15 +22,24 @@ function changeWage() {
     loadContent();
 }
 
-function loadContent(){
-    //alert("script run");
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.update(tabs[0].id, {url: tabs[0].url});
+function refresh() {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        chrome.tabs.executeScript(tabs[0].id, { file: "content.js" }, function () {
+            console.log("Script refreshed");
+        });
     });
 }
 
+function loadContent() {
+    //alert("script run");
+
+     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+         chrome.tabs.update(tabs[0].id, { url: tabs[0].url });
+     });
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('submit').addEventListener('click', changeWage);
-    document.getElementById('onOff').addEventListener('click', onOff)
+    document.getElementById('onOff').addEventListener('click', onOff);
+    document.getElementById('refresh').addEventListener('click', refresh);
 });
