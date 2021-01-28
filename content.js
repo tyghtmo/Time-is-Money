@@ -35,8 +35,8 @@ function moneyToTime(hourWage) {
                 var text = node.nodeValue;
 
                 if (text != null) {
-                    //Match any text with $00.00 and replace
-                    var pattern = /\$\d+\.?\d{0,2}/g;
+                    //Match any text with $0,000.00 and replace
+                    var pattern = /\$(?:\d+\,?)\d+\.?\d{0,2}/g;
                     var numString = "";
                     var match = text.match(pattern);
                     if (match != null) {
